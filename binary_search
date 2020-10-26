@@ -1,0 +1,72 @@
+#include <iostream>
+
+using namespace std;
+
+int binarySearch(double x[], int n, double value);
+
+int main()
+{
+	int n;
+	double value;
+	cout << "Enter length of array" << endl;
+	cin >> n;
+	double arr[n];
+
+	//Input array
+	cout << "Now enter the sorted array and if not sorted you may get wrong result :" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> arr[i];
+	}
+	
+	again:
+	//Get value to search
+	cout << "Enter the value to search : ";
+	cin >> value;
+
+	//Binary search on array and show result
+	int bs;
+	bs = binarySearch(arr, n, value);
+	if (bs == -1)
+	{
+		cout << "Not found" << endl;
+	}
+	else
+	{
+		cout << "Found at index (starting from 0) : " << bs << endl;
+	}
+	cout<<"\nEnter 1 if you want to check again : ";
+	int ch;
+	cin>>ch;
+	if (ch==1) goto again;
+	return 0;
+}
+
+//Function for binary search algorithm
+int binarySearch(double x[], int n, double value)
+{
+	int lo = 0;
+	int hi = n - 1;
+
+	int mid;
+
+	while (lo <= hi)
+	{
+		mid = (lo + hi) / 2;
+
+		if (value == x[mid])
+		{
+			return mid;
+		}
+		else if (value > x[mid])
+		{
+			lo = mid + 1;
+		}
+		else
+		{
+			hi = mid - 1;
+		}
+	}
+
+	return -1;
+}
