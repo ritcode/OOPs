@@ -1,0 +1,54 @@
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+	again:
+	int m,n;
+	
+	//Taking dimensions and declaring matrices
+	
+	cout<<"Enter number of Rows and Columns :  ";
+	cin>>m>>n;
+	float mat1[m][n],mat2[m][n];
+	
+	//Input 1st matrix
+	
+	cout<<"Enter the 1st Matrix"<<endl;
+	for (int i=0;i<m;i++)
+	{
+		for (int j=0;j<n;j++)
+		{
+			cin>>mat1[i][j];
+		}
+	}
+	
+	//Input 2nd matrix
+	
+	cout<<"Now enter the 2nd Matrix"<<endl;
+	for (int i=0;i<m;i++)
+	{
+		for (int j=0;j<n;j++)
+		{
+			cin>>mat2[i][j];
+		}
+	}
+	
+	// Adding and showing result
+	cout<<"Sum of above two matrices is :"<<endl;
+	for (int i=0;i<m;i++)
+	{
+		for (int j=0;j<n;j++)
+		{
+			cout<<mat1[i][j]+mat2[i][j]<<" ";
+		}
+		cout<<endl;
+	}
+	
+	cout<<"\nEnter 1 if you want to check again : ";
+	int ch;
+	cin>>ch;
+	if (ch==1) goto again;
+	return 0;
+}
